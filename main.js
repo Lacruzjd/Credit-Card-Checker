@@ -78,27 +78,29 @@ const findInvalidCards = (array) => {
 };
 
 const idInvalidCardCompanies = (array) => {
-  let invalidCard = [];
+  let invalidCardcompanies = [];
 
   for (let index = 0; index < array.length; index++) {
     const element = array[index];
 
-    if (element[index] === 3) invalidCard.push("Amex");
+    if (element[index] === 3) invalidCardcompanies.push("Amex");
 
-    if (element[0] === 4) invalidCard.push("Visa");
+    if (element[0] === 4) invalidCardcompanies.push("Visa");
 
-    if (element[0] === 5) invalidCard.push("MasterCard");
+    if (element[0] === 5) invalidCardcompanies.push("MasterCard");
 
     if (element[0] === 6) {
-      invalidCard.push("Descover");
+      invalidCardcompanies.push("Descover");
     } else {
-      invalidCard.push("Company not found");
+      invalidCardcompanies.push("Company not found");
     }
   }
 
-  return invalidCard.filter(
-    (value, index) => invalidCard.indexOf(value) === index
-  );
+  invalidCardcompanies = invalidCardcompanies.filter(
+    (value, index) => invalidCardcompanies.indexOf(value) === index);
+
+  return invalidCardcompanies
+
 };
 
 console.log(findInvalidCards(batch));
